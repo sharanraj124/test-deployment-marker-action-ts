@@ -28018,13 +28018,15 @@ async function callApi() {
         const revision = core.getInput('revision');
         const releaseStage = core.getInput('releaseStage') || 'production';
         const projectId = core.getInput('projectId');
+        const user = core.getInput('user');
         const apiUrl = 'https://api.atatus.com/v2/projects';
         // Prepare the request payload
         const payload = {
             api_key: apiKey,
             revision,
             release_stage: releaseStage,
-            changes
+            changes,
+            user
         };
         // Make the API request
         const response = await axios_1.default.post(`${apiUrl}/${projectId}/deployments`, payload);
