@@ -1,0 +1,42 @@
+name: Deploy to Atatus
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the action
+        run: npm run build
+
+      - name: Call External API Action
+        uses: ./
+        with:
+          api_key: "06940b2ade414daeaa4fabb61e302089"
+          changes: "latest"
+          revision: "10"
+          release_stage: 'production'
+          project_id: "66963a0438d102187cd130c3"
+
+
+        # with:
+        #   api_key: ${{ secrets.ATATUS_API_KEY }}
+        #   changes: ${{ env.CHANGED_FILES }}
+        #   revision: ${{ github.run_number }}
+        #   release_stage: 'production'
+        #   project_id: ${{ secrets.ATATUS_PROJECT_ID }}

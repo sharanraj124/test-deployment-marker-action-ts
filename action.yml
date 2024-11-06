@@ -1,0 +1,34 @@
+name: 'Call External API Action'
+description: 'This action calls an external API using HTTP requests.'
+inputs:
+  api_key:
+    description: 'Your Atatus API Key.'
+    required: true
+  project_id:
+    description: 'Your Atatus project id'
+    required: true
+  revision:
+    description: 'Commit for the deployment.'
+    required: true
+  release_stage:
+    description: 'The release stage (e.g., production, staging).'
+    required: true
+    default: 'production'
+  changes:
+    description: 'Change log string stored with the deployment.'
+    required: true
+    default: 'No Changes'
+  api_url:
+    description: 'The URL of the API to call.'
+    required: false
+    default: 'https://api.atatus.com/v2/projects'
+outputs:
+  response:
+    description: 'The response from the external API call.'
+
+runs:
+  using: 'node16'      # Use Node.js 16 to run the action
+  main: 'dist/index.js' # The path to the compiled JavaScript file
+# runs:
+#   using: 'node16'
+#   main: 'index.js'
