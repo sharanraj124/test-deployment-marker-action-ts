@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "package": "npx ncc build src/index.ts -o dist --source-map --license licenses.txt",
-    "test": "node dist/index.js"
+    "test": "node dist/index.js",
+    "act-test": "act --container-architecture linux/amd64 -W .github/workflows/test.yml"
   },
   "dependencies": {
     "@actions/core": "^1.11.1",

@@ -16,11 +16,11 @@ jobs:
       - name: Call External API Action
         uses: ./
         with:
-          api_key: ${{ secrets.ATATUS_API_KEY }}
+          apiKey: ${{ secrets.ATATUS_API_KEY }}
           changes: ${{ env.CHANGED_FILES }}
           revision: ${{ github.run_number }}
-          release_stage: 'production'
-          project_id: ${{ secrets.ATATUS_PROJECT_ID }}
+          releaseStage: 'production'
+          projectId: ${{ secrets.ATATUS_PROJECT_ID }}
 
 
 

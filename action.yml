@@ -1,16 +1,16 @@
 name: 'Call External API Action'
 description: 'This action calls an external API using HTTP requests.'
 inputs:
-  api_key:
+  apiKey:
     description: 'Your Atatus API Key.'
     required: true
-  project_id:
+  projectId:
     description: 'Your Atatus project id'
     required: true
   revision:
     description: 'Commit for the deployment.'
     required: true
-  release_stage:
+  releaseStage:
     description: 'The release stage (e.g., production, staging).'
     required: true
     default: 'production'
@@ -18,7 +18,7 @@ inputs:
     description: 'Change log string stored with the deployment.'
     required: true
     default: 'No Changes'
-  api_url:
+  apiUrl:
     description: 'The URL of the API to call.'
     required: false
     default: 'https://api.atatus.com/v2/projects'
