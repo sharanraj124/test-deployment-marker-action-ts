@@ -27,8 +27,5 @@ outputs:
     description: 'The response from the external API call.'
 
 runs:
-  using: 'node16'      # Use Node.js 16 to run the action
-  main: 'dist/index.js' # The path to the compiled JavaScript file
-# runs:
-#   using: 'node16'
-#   main: 'index.js'
+  using: 'node20'
+  main: 'dist/index.js'

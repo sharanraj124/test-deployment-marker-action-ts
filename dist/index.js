@@ -28013,12 +28013,17 @@ const axios_1 = __importDefault(__nccwpck_require__(7269));
 async function callApi() {
     try {
         // Get inputs from the GitHub Action metadata
-        const apiUrl = core.getInput('api_url');
         const apiKey = core.getInput('api_key');
         const changes = core.getInput('changes');
         const revision = core.getInput('revision');
         const releaseStage = core.getInput('release_stage') || 'production';
         const projectId = core.getInput('project_id');
+        const apiUrl = 'https://api.atatus.com/v2/projects';
+        // const apiKey = process.env['ATATUS_API_KEY'];
+        // const changes = process.env['ATATUS_CHANGES'];
+        // const revision = process.env['ATATUS_REVISION'];
+        // const releaseStage = process.env['ATATUS_RELEASE_STAGE'];
+        // const projectId = process.env['ATATUS_PROJECT_ID'];
         // Prepare the request payload
         const payload = {
             api_key: apiKey,
@@ -28026,6 +28031,7 @@ async function callApi() {
             release_stage: releaseStage,
             changes
         };
+        console.log("payload", payload);
         // Make the API request
         const response = await axios_1.default.post(`${apiUrl}/${projectId}/deployments`, payload);
         // Log and set output for the GitHub Action
